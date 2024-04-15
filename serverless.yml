@@ -1,0 +1,58 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#  docs.serverless.com
+#
+# Happy Coding!
+
+service: FUTURE-NOTE
+useDotenv: true
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-tscpaths
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: 'us-east-1'
+  environment:
+    stage: ${env:STAGE}
+  httpApi:
+    name: FUTURE-NOTE-API
+    metrics: true
+    cors: true
+
+functions:
+  api:
+    handler: build/src/index.handler
+    events:
+      - httpApi:
+          method: '*'
+          path: /{proxy+}
+      - httpApi:
+          method: GET
+          path: /notification
+
+  expireApiKeys:
+    handler: build/src/scheduled/expire-api-keys.handler
+    events:
+      - schedule: rate(1 hour)
+
+  sendNotifications:
+    handler: build/src/scheduled/send-notifications.handler
+    events:
+      - schedule: cron(0 7-23 * * *)
+
+custom:
+  dotenv:
+    path: .env

@@ -1,0 +1,57 @@
+{
+	"name": "scheduled-notification",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.ts",
+	"scripts": {
+		"dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"serverless offline\"",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "tsc && serverless deploy --stage dev aws-profile default"
+	},
+	"_moduleAliases": {
+		"@src": "build/src",
+		"@routes": "build/src/routes",
+		"@helpers": "build/src/helpers",
+		"@types": "build/src/types",
+		"@mongodb": "build/src/mongodb",
+		"@middleware": "build/src/middleware"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/koa": "^2.15.0",
+		"@types/koa__cors": "^5.0.0",
+		"@types/koa-bodyparser": "^4.3.12",
+		"@types/koa-logger": "^3.1.5",
+		"@types/koa-router": "^7.4.8",
+		"@types/node": "^20.11.30",
+		"@types/uniqid": "^5.3.4",
+		"deepmerge": "^4.3.1",
+		"rimraf": "^5.0.5",
+		"serverless-offline": "^13.3.3",
+		"serverless-plugin-typescript": "^2.1.5",
+		"serverless-tscpaths": "^0.0.8",
+		"tsc-watch": "^6.0.4",
+		"typescript": "^5.4.4"
+	},
+	"dependencies": {
+		"@aws-sdk/client-lambda": "^3.540.0",
+		"@bugsnag/js": "^7.22.4",
+		"@bugsnag/plugin-aws-lambda": "^7.22.3",
+		"@bugsnag/plugin-koa": "^7.19.0",
+		"@clack/prompts": "^0.7.0",
+		"@koa/cors": "^5.0.0",
+		"dayjs": "^1.11.10",
+		"dotenv": "^16.4.5",
+		"generate-api-key": "^1.0.2",
+		"koa": "^2.15.2",
+		"koa-bodyparser": "^4.4.1",
+		"koa-helmet": "^7.0.2",
+		"koa-logger": "^3.2.1",
+		"koa-router": "^12.0.1",
+		"module-alias": "^2.2.3",
+		"mongodb": "6.5",
+		"serverless-http": "^3.2.0",
+		"uniqid": "^5.4.0"
+	}
+}
