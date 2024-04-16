@@ -45,13 +45,19 @@ functions:
 
   expireApiKeys:
     handler: build/src/scheduled/expire-api-keys.handler
+    environment:
+      BUGSNAG: ${env:BUGSNAG}
+      MONGODBCONNECTIONSTRING: ${env:MONGODBCONNECTIONSTRING}
     events:
       - schedule: rate(1 hour)
 
   sendNotifications:
     handler: build/src/scheduled/send-notifications.handler
+    environment:
+      BUGSNAG: ${env:BUGSNAG}
+      MONGODBCONNECTIONSTRING: ${env:MONGODBCONNECTIONSTRING}
     events:
-      - schedule: cron(0 7-23 * * *)
+      - schedule: rate(1 hour)
 
 custom:
   dotenv:

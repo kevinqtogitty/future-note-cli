@@ -1,10 +1,17 @@
 interface Notification {
 	id: string;
+	alert: string;
 	message: string;
 	date: string;
-	sent: boolean;
-	createdAt: string;
+	isSent: boolean;
+	createdAt: number;
 	isDeleted: boolean;
 }
 
-export default Notification;
+interface NotificationRequest {
+	alert: string;
+	message: string;
+	date: string;
+}
+
+export { Notification, NotificationRequest };

@@ -10,6 +10,6 @@ const notificationRouter = new Router();
 notificationRouter
 	.get('/notification', (ctx) => fetchAllNotifications(ctx))
 	.get('/notification/:id', (ctx) => fetchSingleNotification(ctx))
-	.post('/notification/:id', (ctx) => postSingleNotification(ctx));
+	.post('/notification', (ctx) => postSingleNotification(ctx));
 
 export default notificationRouter;
