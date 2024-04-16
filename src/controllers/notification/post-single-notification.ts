@@ -11,8 +11,19 @@ export async function postSingleNotification(ctx: Context) {
 		const db = await mongodbClient({ database: 'prod' });
 		const collection: Collection<Notification> = db.collection('notifications');
 		const requestBody = ctx.request.body as NotificationRequest;
+
+		if (!requestBody?.alert || !requestBody?.message || !requestBody?.date) {
+			throw new Error('Missing one of the following - alert, message, or date in your request');
+		}
+
 		const { alert, message, date } = requestBody;
+
+		if (date < dayjs().unix()) {
+			throw new Error('No way Jose, cannot schedule a notification in the past');
+		}
+
 		const notificationRequest: Notification = {
+			type: 'NOTIFICATION',
 			id: uniqId(),
 			alert,
 			message,
