@@ -5,6 +5,7 @@
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"serverless offline\"",
+		"build": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"deploy": "tsc && serverless deploy --stage dev aws-profile default"
 	},
@@ -39,6 +40,7 @@
 		"@bugsnag/js": "^7.22.4",
 		"@bugsnag/plugin-aws-lambda": "^7.22.3",
 		"@bugsnag/plugin-koa": "^7.19.0",
+		"@clack/core": "^0.3.4",
 		"@clack/prompts": "^0.7.0",
 		"@koa/cors": "^5.0.0",
 		"dayjs": "^1.11.10",
@@ -52,6 +54,7 @@
 		"module-alias": "^2.2.3",
 		"mongodb": "6.5",
 		"serverless-http": "^3.2.0",
+		"twilio": "^5.0.3",
 		"uniqid": "^5.4.0"
 	}
 }
