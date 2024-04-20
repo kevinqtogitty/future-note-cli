@@ -10,6 +10,7 @@ interface Props {
 
 export function createUniversalError({ ctx, status, data }: Props): ErrorResponse {
 	ctx.status = status;
+
 	return {
 		statusCode: status,
 		body: data

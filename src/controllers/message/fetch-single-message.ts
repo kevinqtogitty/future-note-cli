@@ -3,7 +3,7 @@ import { createUniversalResponse } from '@src/helpers/create-universal-response'
 import { Context } from 'koa';
 import { Collection, Db } from 'mongodb';
 
-export async function fetchSingleNotification(ctx: Context) {
+export async function fetchSingleMessage(ctx: Context) {
 	const { id } = ctx.params;
 
 	try {

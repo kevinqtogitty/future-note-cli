@@ -1,6 +1,5 @@
-interface Notification {
+interface Message {
 	id: string;
-	alert: string;
 	message: string;
 	date: number;
 	isSent: boolean;
@@ -9,10 +8,9 @@ interface Notification {
 	type: string;
 }
 
-interface NotificationRequest {
-	alert: string;
+interface MessageRequest {
 	message: string;
 	date: number;
 }
 
-export { Notification, NotificationRequest };
+export { Message, MessageRequest };

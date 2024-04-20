@@ -5,12 +5,12 @@ import logger from 'koa-logger';
 import koaHelmet from 'koa-helmet';
 import parser from 'koa-bodyparser';
 
-import notificationRouter from '@src/routers/notification/notification-router';
+import messageRouter from '@src/routers/message/message-router';
 import { errorHandler } from '@middleware/error-handler';
 
 import ServerlessHttp from 'serverless-http';
 import initializeBugSnag from './bugsnag/bugsnag-init';
-import authRouter from './routers/notification/auth-router';
+import authRouter from './routers/message/auth-router';
 import { authCheck } from './middleware/auth-check';
 
 const server = new Koa();
@@ -26,7 +26,7 @@ server
 	.use(cors())
 	.use(logger())
 	.use(koaHelmet())
-	.use(notificationRouter.routes())
+	.use(messageRouter.routes())
 	.use(authRouter.routes())
 	// PORT listening is purely for tesing locally, as AWS Lambda handles the entry point for our requests
 	.listen(port, async () => {
