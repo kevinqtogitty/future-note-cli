@@ -1,6 +1,6 @@
 import { Context } from 'koa';
-import { createUniversalResponse } from '@src/helpers/create-universal-response';
-import { generateOrValidateApiKey } from '@src/helpers/create-or-validate-api-key';
+import { createUniversalResponse } from '@helpers/create-universal-response';
+import { generateOrValidateApiKey } from '@helpers/create-or-validate-api-key';
 
 export async function createApiKey(ctx: Context) {
 	try {
