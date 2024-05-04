@@ -49,6 +49,7 @@
 		"@clack/prompts": "^0.7.0",
 		"@koa/cors": "^5.0.0",
 		"@shopify/jest-koa-mocks": "^5.1.1",
+		"@vonage/server-sdk": "^3.14.0",
 		"dayjs": "^1.11.10",
 		"dotenv": "^16.4.5",
 		"generate-api-key": "^1.0.2",
@@ -61,7 +62,6 @@
 		"mongodb": "6.5",
 		"picocolors": "^1.0.0",
 		"serverless-http": "^3.2.0",
-		"twilio": "^5.0.3",
 		"uniqid": "^5.4.0"
 	}
 }

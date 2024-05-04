@@ -6,11 +6,13 @@ interface Message {
 	createdAt: number;
 	isDeleted: boolean;
 	type: string;
+	phoneNumber: number;
 }
 
 interface MessageRequest {
 	message: string;
 	date: number;
+	phoneNumber: number;
 }
 
 export { Message, MessageRequest };

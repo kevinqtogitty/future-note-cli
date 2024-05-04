@@ -16,7 +16,7 @@ export async function postSingleMessage(ctx: Context) {
 			throw new Error('Missing one of the following - alert, message, or date in your request');
 		}
 
-		const { message, date } = requestBody;
+		const { message, date, phoneNumber } = requestBody;
 
 		if (date < dayjs().unix()) {
 			throw new Error('No way Jose, cannot schedule a notification in the past');
@@ -29,7 +29,8 @@ export async function postSingleMessage(ctx: Context) {
 			date,
 			isSent: false,
 			createdAt: dayjs().unix(),
-			isDeleted: false
+			isDeleted: false,
+			phoneNumber
 		};
 
 		const { acknowledged }: InsertOneResult = await collection.insertOne(scheduledMessage);
